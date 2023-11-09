@@ -1,0 +1,3 @@
+1. PropTypes is a runtime type-checking feature in React that helps ensure the correct data types are passed to components. (./components/Header.jsx ln 25)
+
+2. It helps improve code reliability by giving a warning when a component receives incorrect or missing props. (Script.jsx ln 9)
