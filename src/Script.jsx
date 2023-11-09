@@ -6,7 +6,7 @@ function Script() {
 
     <div className="script">
 
-      <Header title={2}/>
+      <Header title='Task Tracker'/>
 
     </div>
    

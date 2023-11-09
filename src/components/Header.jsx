@@ -6,18 +6,12 @@ const Header = ({ title }) =>{
 
         <header>
         
-            <h1 style={headerStyles}>{title}</h1>
+            <h1>{title}</h1>
         
         </header>
 
     )
 
-}
-
-
-const headerStyles ={
-    color: "red",
-    backgroundColor: "yellow"
 }
 
 export default Header
