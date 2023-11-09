@@ -6,7 +6,7 @@ function Script() {
 
     <div className="script">
 
-      <Header/>
+      <Header title="Hello"/>
 
     </div>
    
