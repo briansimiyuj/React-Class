@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import Tasks from './components/Tasks'
 
 function Script() {
 
@@ -7,6 +8,8 @@ function Script() {
     <div className="script">
 
       <Header title='Task Tracker'/>
+
+      <Tasks/>
 
     </div>
    
