@@ -30,13 +30,24 @@ function Script() {
   ])
 
 
+  const deleteTask = (id) =>{
+  
+    setTasks(tasks.filter(task => task.id !== id))
+  
+  }
+
+
   return (
 
     <div className="script">
 
       <Header title='Task Tracker'/>
 
-      <Tasks tasks={tasks}/>
+      {
+
+        tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask}/> : 'No tasks to show'
+
+      }
 
     </div>
    
