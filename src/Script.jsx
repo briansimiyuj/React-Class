@@ -37,6 +37,21 @@ function Script() {
   }
 
 
+  const toggleReminder = (id) =>{
+  
+    setTasks(tasks.map(task => 
+      
+      task.id === id ? 
+    
+      { ...task, reminder: !task.reminder } 
+    
+      : task
+        
+    ))
+  
+  }
+
+
   return (
 
     <div className="script">
@@ -45,7 +60,16 @@ function Script() {
 
       {
 
-        tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask}/> : 'No tasks to show'
+        tasks.length > 0 ?
+
+          <Tasks 
+            tasks={tasks} 
+            deleteTask={deleteTask} 
+            toggleReminder={toggleReminder}
+          />
+        :
+
+         'No tasks to show'
 
       }
 
