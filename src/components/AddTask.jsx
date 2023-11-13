@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const AddTask = () =>{
+const AddTask = ({ addTask }) =>{
 
     const [text, setText] = useState(''),
 
@@ -8,9 +8,35 @@ const AddTask = () =>{
 
           [reminder, setReminder] = useState(false)
 
+
+    const onSubmit = (e) =>{
+    
+       e.preventDefault()
+
+
+       if(!text){
+
+            alert('Please add task') 
+            
+            return
+
+       }
+
+       addTask({ text, day, reminder })
+
+
+       setText('')
+
+       setDay('')
+
+       setReminder(false)
+    
+    }
+
+
     return(
 
-        <form>
+        <form onSubmit={onSubmit}>
         
             <div className="form-control">
 
@@ -46,6 +72,7 @@ const AddTask = () =>{
 
                 <input 
                     type="checkbox"
+                    checked={reminder}
                     value={reminder}
                     onChange={e => setReminder(e.currentTarget.checked)}
                 />

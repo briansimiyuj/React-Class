@@ -31,6 +31,18 @@ function Script() {
   ])
 
 
+  const addTask = (task) =>{
+  
+    const id = Math.floor(Math.random() * 1000) + 1,
+
+          newTask = { id, ...task }
+
+    
+    setTasks([...tasks, newTask])
+  
+  }
+
+
   const deleteTask = (id) =>{
   
     setTasks(tasks.filter(task => task.id !== id))
@@ -59,7 +71,7 @@ function Script() {
 
       <Header title='Task Tracker'/>
 
-      <AddTask/>
+      <AddTask addTask={addTask}/>
 
       {
 
