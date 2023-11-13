@@ -1,4 +1,12 @@
+import { useState } from 'react'
+
 const AddTask = () =>{
+
+    const [text, setText] = useState(''),
+
+          [day, setDay] = useState(''),
+
+          [reminder, setReminder] = useState(false)
 
     return(
 
@@ -8,7 +16,12 @@ const AddTask = () =>{
 
                 <label htmlFor="">Task</label>
 
-                <input type="text" placeholder="Add Task"/>
+                <input 
+                    type="text" 
+                    placeholder="Add Task"
+                    value={text}
+                    onChange={e => setText(e.target.value)}
+                />
 
             </div>
 
@@ -17,7 +30,12 @@ const AddTask = () =>{
 
                 <label htmlFor="">Day & Time</label>
 
-                <input type="text" placeholder="Add Day & Time"/>
+                <input 
+                    type="text" 
+                    placeholder="Add Day & Time"
+                    value={day}
+                    onChange={e => setDay(e.target.value)}
+                />
 
             </div>
 
@@ -26,7 +44,11 @@ const AddTask = () =>{
 
                 <label htmlFor="">Set Reminder</label>
 
-                <input type="checkbox"/>
+                <input 
+                    type="checkbox"
+                    value={reminder}
+                    onChange={e => setReminder(e.currentTarget.checked)}
+                />
 
             </div>
 
