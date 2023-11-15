@@ -5,6 +5,8 @@ import { useState } from 'react'
 
 function Script() {
 
+  const [showAddTask, setShowAddTask] = useState(false)
+
   const [tasks, setTasks] = useState([
 
     {
@@ -69,9 +71,9 @@ function Script() {
 
     <div className="script">
 
-      <Header title='Task Tracker'/>
+      <Header title='Task Tracker' setShowAddTask={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
 
-      <AddTask addTask={addTask}/>
+      {showAddTask && <AddTask addTask={addTask}/>}
 
       {
 
