@@ -1,3 +1,11 @@
 If we want to deploy our React project, we have to optimized it to a folder called build. This is done by running the following command:
 
     `npm run build`
+
+To see the optimized assets locally, we need to install the Serve package with the following command:
+
+    `npm i -g serve`
+
+Then run the serve command:
+
+    `serve -s build -p ${port}`
