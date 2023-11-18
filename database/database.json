@@ -9,7 +9,7 @@
     {
       "text": "Watching football",
       "day": "Nov 19th at 3.30pm",
-      "reminder": true,
+      "reminder": false,
       "id": 4
     }
   ]
