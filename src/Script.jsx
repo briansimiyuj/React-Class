@@ -1,6 +1,8 @@
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import About from './components/About'
 import { useState, useEffect } from 'react'
 
 function Script() {
@@ -131,6 +133,8 @@ function Script() {
          'No tasks to show'
 
       }
+
+      <Footer/>
 
     </div>
    
