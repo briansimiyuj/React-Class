@@ -36,14 +36,23 @@ function Script() {
   }
 
 
-  const addTask = (task) =>{
+  const addTask = async(task) =>{
   
-    const id = Math.floor(Math.random() * 1000) + 1,
+    const response = await fetch("http://localhost:5000/tasks", { 
 
-          newTask = { id, ...task }
+      method: "POST",
 
-    
-    setTasks([...tasks, newTask])
+      headers:{
+        "Content-type": "application/json"
+      },
+
+      body: JSON.stringify(task)
+
+    }),
+
+      data = await response.json()
+
+      setTasks([...tasks, data])
   
   }
 
