@@ -11,20 +11,29 @@ function Script() {
 
 
   useEffect(() =>{
-  
-    const fetchTasks = async() =>{
+
+    const getTasks = async() =>{
     
-      const response = await fetch("http://localhost:5000/tasks"),
+      const taskFromServer = await fetchTasks()
 
-            data = await response.json()
-
-      console.log(data)
+      setTasks(taskFromServer)
     
     }
 
-    fetchTasks()
+    getTasks()
   
   }, [])
+
+  
+  const fetchTasks = async() =>{
+  
+    const response = await fetch("http://localhost:5000/tasks"),
+
+          data = await response.json()
+
+    return data
+  
+  }
 
 
   const addTask = (task) =>{
