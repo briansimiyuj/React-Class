@@ -4,6 +4,7 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import About from './components/About'
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function Script() {
 
@@ -119,24 +120,37 @@ function Script() {
 
         <Header title='Task Tracker' setShowAddTask={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
 
-        {showAddTask && <AddTask addTask={addTask}/>}
+        <Routes>
 
-        {
+          <Route path="/"  element={
+            
+            <>
 
-          tasks.length > 0 ?
+              {showAddTask && <AddTask addTask={addTask}/>}
 
-            <Tasks 
-              tasks={tasks} 
-              deleteTask={deleteTask} 
-              toggleReminder={toggleReminder}
-            />
-          :
+              {
 
-          'No tasks to show'
+                tasks.length > 0 ?
 
-        }
+                  <Tasks 
+                    tasks={tasks} 
+                    deleteTask={deleteTask} 
+                    toggleReminder={toggleReminder}
+                  />
+                :
 
-        <Route path='/about' component={About}/>
+                'No tasks to show'
+
+              }
+
+            
+            </>
+
+            }/>
+
+          <Route path='/about' element={<About/>}/>
+
+        </Routes>
 
         <Footer/>
 
