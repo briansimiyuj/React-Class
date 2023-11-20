@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function TaskDetails(){
 
@@ -10,7 +10,9 @@ function TaskDetails(){
           [error, setError] = useState(null),
 
 
-        params = useParams()
+        params = useParams(),
+
+        navigate = useNavigate()
 
     
         useEffect(() =>{
@@ -24,7 +26,7 @@ function TaskDetails(){
 
             if(response.status === 404){
 
-                setError('Task not foung')
+                navigate('/')
                 
             }
         
@@ -37,13 +39,6 @@ function TaskDetails(){
         fetchTask()
     
     })
-
-
-    if(error){
-
-        return <Navigate to='/'/>
-        
-    }
 
 
     return loading?(
