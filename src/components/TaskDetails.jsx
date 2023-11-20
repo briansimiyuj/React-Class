@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import Button from './Button'
 
 function TaskDetails(){
 
@@ -52,6 +53,12 @@ function TaskDetails(){
             <h3>{task.text}</h3>
 
             <p>{task.day}</p>
+
+            <Button text='Go Back' onClick={() =>{
+            
+               navigate(-1)
+            
+            }}/>
 
         </div>
 
