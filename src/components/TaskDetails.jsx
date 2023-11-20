@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import Button from './Button'
 
 function TaskDetails(){
@@ -13,7 +13,9 @@ function TaskDetails(){
 
         params = useParams(),
 
-        navigate = useNavigate()
+        navigate = useNavigate(),
+
+        { pathname } = useLocation()
 
     
         useEffect(() =>{
@@ -49,6 +51,8 @@ function TaskDetails(){
     ):(
 
         <div>
+
+            <p>{pathname}</p>
 
             <h3>{task.text}</h3>
 
