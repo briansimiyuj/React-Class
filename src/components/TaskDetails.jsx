@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 
 function TaskDetails(){
 
@@ -20,6 +20,13 @@ function TaskDetails(){
             const response = await fetch(`http://localhost:5000/tasks/${params.id}`),
         
                   data = await response.json()
+
+
+            if(response.status === 404){
+
+                setError('Task not foung')
+                
+            }
         
             setTask(data)
 
@@ -31,6 +38,12 @@ function TaskDetails(){
     
     })
 
+
+    if(error){
+
+        return <Navigate to='/'/>
+        
+    }
 
 
     return loading?(
