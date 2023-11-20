@@ -113,30 +113,36 @@ function Script() {
 
   return (
 
-    <div className="script">
+    <Router>
 
-      <Header title='Task Tracker' setShowAddTask={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
+      <div className="script">
 
-      {showAddTask && <AddTask addTask={addTask}/>}
+        <Header title='Task Tracker' setShowAddTask={() => setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
 
-      {
+        {showAddTask && <AddTask addTask={addTask}/>}
 
-        tasks.length > 0 ?
+        {
 
-          <Tasks 
-            tasks={tasks} 
-            deleteTask={deleteTask} 
-            toggleReminder={toggleReminder}
-          />
-        :
+          tasks.length > 0 ?
 
-         'No tasks to show'
+            <Tasks 
+              tasks={tasks} 
+              deleteTask={deleteTask} 
+              toggleReminder={toggleReminder}
+            />
+          :
 
-      }
+          'No tasks to show'
 
-      <Footer/>
+        }
 
-    </div>
+        <Route path='/about' component={About}/>
+
+        <Footer/>
+
+      </div>
+
+    </Router>
    
   )
 }
